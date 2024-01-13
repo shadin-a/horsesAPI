@@ -1,12 +1,11 @@
 const client = require("../../connection.js");
-
 const router = require("express").Router();
 
 router.get('/', async (req, res) => {
    
     const cursor = client.db("horseDatabase").collection("horses").find();
     const horsesData = await cursor.toArray();
-    console.log("um...hi?", horsesData );
+    console.log("um...hi?", horsesData);
     res.json({horsesData})
     // try {
     //   const client = req.dbClient; // Access the MongoDB client from the request object
