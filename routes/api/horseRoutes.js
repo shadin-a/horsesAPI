@@ -68,18 +68,17 @@ router.get('/location/:location', async (req, res) => {
 });
 
 //ADD A HORSE TO THE DATABASE
-
 router.post('/add', async (req, res) => {
   try {
-    // Extract horse details from the request body
+    // HORSE DETAILS
     const { name, height, breed, age, location, owner, program,  year_of_birth } = req.body;
 
-    // Validate input (add more validation as needed)
+    // VALIDATE ENTRIES
     if (!name || !height || !breed || !age || !location || !owner || !program || !year_of_birth) {
       return res.status(400).json({ error: "Incomplete horse details" });
     }
 
-    // Create a new horse object
+    // NEW HORSE OBJECT
     const newHorse = {
       name: name,
       height: height,
@@ -92,13 +91,36 @@ router.post('/add', async (req, res) => {
 
     };
 
-    // Insert the new horse into the database
+    // INSERT NEW HORSE
     const result = await client.db("horseDatabase").collection('horses').insertOne(newHorse);
 
-    // Return the newly created horse
     console.log(result);
   } catch (error) {
     console.error("Error adding horse:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//REMOVE A HORSE FROM THE DATABASE 
+router.delete('/:id', async (req, res) => {
+  try {
+    const horseId = req.params.id;
+    const objectId = new ObjectId(horseId);
+
+    // Check if the horse with the specified ID exists
+    const existingHorse = await client.db("horseDatabase").collection('horses').findOne({ _id: objectId });
+
+    if (!existingHorse) {
+      return res.status(404).json({ error: "Horse not found" });
+    }
+
+    // Delete the horse from the database
+    const result = await client.db("horseDatabase").collection('horses').deleteOne({ _id: objectId });
+
+    // Return a success message
+    res.json({ message: "Horse successfully deleted", deletedCount: result.deletedCount });
+  } catch (error) {
+    console.error("Error deleting horse:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
