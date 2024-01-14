@@ -67,5 +67,41 @@ router.get('/location/:location', async (req, res) => {
   }
 });
 
+//ADD A HORSE TO THE DATABASE
+
+router.post('/add', async (req, res) => {
+  try {
+    // Extract horse details from the request body
+    const { name, height, breed, age, location, owner, program,  year_of_birth } = req.body;
+
+    // Validate input (add more validation as needed)
+    if (!name || !height || !breed || !age || !location || !owner || !program || !year_of_birth) {
+      return res.status(400).json({ error: "Incomplete horse details" });
+    }
+
+    // Create a new horse object
+    const newHorse = {
+      name: name,
+      height: height,
+      breed: breed,
+      age: age,
+      location: new ObjectId(location),
+      ownerId: new ObjectId(owner),
+      program: program,
+      year_of_birth: year_of_birth
+
+    };
+
+    // Insert the new horse into the database
+    const result = await client.db("horseDatabase").collection('horses').insertOne(newHorse);
+
+    // Return the newly created horse
+    console.log(result);
+  } catch (error) {
+    console.error("Error adding horse:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 
 module.exports = router
