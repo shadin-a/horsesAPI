@@ -1,32 +1,43 @@
 const client = require("../../connection.js");
 const router = require("express").Router();
+const { ObjectId } = require('mongodb');
 
+//ROUTE TO GET ALL HORSES
 router.get('/', async (req, res) => {
    
     const cursor = client.db("horseDatabase").collection("horses").find();
     const horsesData = await cursor.toArray();
     console.log("um...hi?", horsesData);
     res.json({horsesData})
-    // try {
-    //   const client = req.dbClient; // Access the MongoDB client from the request object
-    //   const horsesData = await client.collection("horses").findAll({
-    //     // Your query or other logic here
-    //   }).catch((err) => {
-    //     res.json(err);
-    //   });
-  
-    //   res.status(200).render('horses', { horsesData });
-    // } catch (err) {
-    //   res.status(500).json(err);
-    // }
+   
   });
 
-  router.get("/:id", async (req,res) => {
-    const cursor = await client.db("horseDatabase").collection('horses').findOne({_id: req.params.id})
-    //const oneHorse = await cursor.toArray();
-    console.log(cursor);
-    res.json(cursor);
+//ROUTE TO GET ONE HORSE BY ID
+  router.get('/:id', async (req, res) => {
+    try {
+      const horseId = req.params.id;
+      const objectId = new ObjectId(horseId);
+  
+      const cursor = await client.db("horseDatabase").collection('horses').findOne({ _id: objectId });
+  
+      if (cursor) {
+        res.json(cursor);
+      } else {
+        res.status(404).json({ error: "Horse not found" });
+      }
+    } catch (error) {
+      console.error("Error fetching horse data:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
   });
+
+  
+  // router.get("/:id", async (req,res) => {
+  //   const cursor = await client.db("horseDatabase").collection('horses').findOne({_id: req.params.id})
+  //   //const oneHorse = await cursor.toArray();
+  //   console.log(cursor);
+  //   res.json(cursor);
+  // });
 // async function findOneHorse(client, nameOfHorse) {
 //     const result = await client.db("horseDatabase").collection("horses").findOne({ name: nameOfHorse })
 //     if (result) {
