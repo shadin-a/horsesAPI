@@ -49,6 +49,23 @@ router.get('/owner/:owner', async (req, res) => {
   }
 });
 
+//GET ALL HORSES WITH SAME LOCATION 
+router.get('/location/:location', async (req, res) => {
+  try {
+    const location = req.params.location;
+    const objectId = new ObjectId(location);
+
+    const cursor = await client.db("horseDatabase").collection('horses').find({ location: objectId }).toArray();
+    if (cursor.length > 0) {
+      res.json(cursor);
+    } else {
+      res.status(404).json({ error: "No horses found at this location" });
+    }
+  } catch (error) {
+    console.error("Error fetching horse data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 
 module.exports = router

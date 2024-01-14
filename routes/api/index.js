@@ -11,8 +11,4 @@ router.use("/locations", locationRoutes);
 
 
 
-
-
-
-
 module.exports = router
