@@ -30,7 +30,31 @@ router.get('/', async (req, res) => {
     }
   });
 
-
+  //ADD AN OWNER
+  router.post('/add', async (req, res) => {
+    try {
+      // OWNER DETAILS
+      const { name } = req.body;
+  
+      // VALIDATE ENTRIES
+      if (!name) {
+        return res.status(400).json({ error: "Incomplete horse details" });
+      }
+  
+      // NEW HORSE OBJECT
+      const newOwner = {
+        name: name,
+      };
+  
+      // INSERT NEW OWNER
+      const result = await client.db("horseDatabase").collection('owners').insertOne(newOwner);
+  
+      console.log(result);
+    } catch (error) {
+      console.error("Error adding owner:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
 
 
 module.exports = router

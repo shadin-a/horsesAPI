@@ -30,6 +30,33 @@ router.get('/:id', async (req, res) => {
     }
   });
 
+  //ADD NEW LOCATION
+   router.post('/add', async (req, res) => {
+    try {
+      // LOCATION DETAILS
+      const { name, address } = req.body;
+  
+      // VALIDATE ENTRIES
+      if (!name || !address ) {
+        return res.status(400).json({ error: "Incomplete horse details" });
+      }
+  
+      // NEW HORSE OBJECT
+      const newLocation = {
+        name: name,
+        address: address,
+      };
+  
+      // INSERT NEW OWNER
+      const result = await client.db("horseDatabase").collection('locations').insertOne(newLocation);
+  
+      console.log(result);
+    } catch (error) {
+      console.error("Error adding location:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+
 
 
 module.exports = router
