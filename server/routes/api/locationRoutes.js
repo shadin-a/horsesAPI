@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
   
       // VALIDATE ENTRIES
       if (!name || !address ) {
-        return res.status(400).json({ error: "Incomplete horse details" });
+        return res.status(400).json({ error: "Incomplete location details" });
       }
   
       // NEW HORSE OBJECT

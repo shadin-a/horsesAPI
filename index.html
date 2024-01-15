@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novella Farms Horse Records</title>
+    <!-- Add any additional styles or scripts here -->
+</head>
+<body>
+    <h1>Novella Farms Horse Records</h1>
+
+    <!-- Form for adding a new horse -->
+
+    <form id="addHorseForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height" required>
+
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="owner">Owner:</label>
+        <input type="text" id="owner" name="owner" required>
+
+        <label for="program">Program:</label>
+        <input type="text" id="program" name="program" required>
+
+        <label for="yearOfBirth">Year of Birth:</label>
+        <input type="text" id="yearOfBirth" name="yearOfBirth" required>
+        
+        <button type="button" onclick="addHorse()">Add Horse</button>
+    </form>
+
+    <!-- Display the list of horses -->
+    <h2>Horses:</h2>
+    <ul id="horseList"></ul>
+    
+<script src="routes/index.js"></script>
+</body>
+</html>
