@@ -32,14 +32,17 @@ function ViewOneHorse() {
         }
     };
 
+
+
+
     return (
 
             <div>
               <h3>{horse.name}</h3>
            <p>Owner: {owner.name}</p>
               <p>Age: {horse.age}</p>
-              {horse.imageUrl && (
-                <img src={horse.imageUrl} alt={horse.name} />
+              {horse.imageURL && (
+                <img src={horse.imageURL} alt={horse.name} />
               )}
             </div>
           );
