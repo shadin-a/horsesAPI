@@ -71,7 +71,7 @@ router.get('/location/:location', async (req, res) => {
 router.post('/add', async (req, res) => {
   try {
     // HORSE DETAILS
-    const { name, height, breed, age, location, owner, program,  year_of_birth } = req.body;
+    const { name, height, breed, age, location, owner, program,  year_of_birth,  } = req.body;
 
     // VALIDATE ENTRIES
     if (!name || !height || !breed || !age || !location || !owner || !program || !year_of_birth) {
@@ -85,7 +85,7 @@ router.post('/add', async (req, res) => {
       breed: breed,
       age: age,
       location: new ObjectId(location),
-      ownerId: new ObjectId(owner),
+      owner: new ObjectId(owner),
       program: program,
       year_of_birth: year_of_birth
 

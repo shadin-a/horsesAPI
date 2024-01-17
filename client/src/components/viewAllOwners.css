@@ -1,0 +1,11 @@
+.owner-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: fit-content;
+}
+
+.owner-buttons button {
+    font-size: 16px;
+    padding: 8px;
+}

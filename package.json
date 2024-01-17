@@ -23,5 +23,9 @@
   "homepage": "https://github.com/shadin-a/horsesAPI#readme",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.7.0",
+    "multer": "^1.4.5-lts.1"
   }
 }

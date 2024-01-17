@@ -1,45 +1,28 @@
 
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import ViewAllHorses from './components/ViewAllHorses';
+import ViewAllOwners from './components/ViewAllOwners';
+import HorsesByOwner from './components/HorsesByOwner';
+import NotFound from './components/NotFound';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ViewOneHorse from './components/ViewOneHorse';
+
 
 function App() {
 
-  const [horses, setHorses] = useState([]);
-
-  useEffect(() => {
-    fetchHorses();
-  }, []);
-
-  useEffect(() => {
-    console.log(horses);
-  }, [horses]);
-
-  const fetchHorses = async () => {
-    try {
-      const response = await fetch('/horses');
-      const data = await response.json();
-      setHorses(data);
-    } catch (error) {
-      console.error('Error fetching horses:', error);
-    }
-  };
   return (
-    <div className="App">
-      <header className="App-header">
-      
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+    <Router>
+      <Routes>
+        <Route path="/" element={<ViewAllHorses />} />
+        <Route path="/owners" element={<ViewAllOwners />} />
+        <Route path="/owner/:id" element={<HorsesByOwner />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/horses/:id" element={<ViewOneHorse />} />
+        {/* ... other routes */}
+      </Routes>
+    </Router>
   );
 }
 
