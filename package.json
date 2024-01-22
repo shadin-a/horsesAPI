@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "@google-cloud/storage": "^7.7.0",
-    "multer": "^1.4.5-lts.1"
+    "bootstrap": "^5.3.2",
+    "multer": "^1.4.5-lts.1",
+    "react-bootstrap": "^2.10.0"
   }
 }

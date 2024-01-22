@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './ViewOneHorse.css'
+
 
 function ViewOneHorse() {
 
@@ -33,7 +35,7 @@ function ViewOneHorse() {
         // Fetch owner details based on location ID
         const locationResponse = await fetch(`/locations/${data.location}`);
         const locationData = await locationResponse.json();
-        console.log(locationData);
+        setLocation(locationData);
       }
 
     } catch (error) {
@@ -44,6 +46,9 @@ function ViewOneHorse() {
   return (
 
     <div>
+       <div className='horse-image-container'>{horse.imageURL && (
+        <img className='horse-images' src={horse.imageURL} alt={horse.name} />
+      )}</div>
       <h3>{horse.name}</h3>
       <p>Owner: {owner.name}</p>
       <p>Age: {horse.age}</p>
@@ -51,9 +56,7 @@ function ViewOneHorse() {
       <p>Breed: {horse.breed}</p>
       <p>Height: {horse.height}</p>
       <p>Born: {horse.year_of_birth}</p>
-      {horse.imageURL && (
-        <img src={horse.imageURL} alt={horse.name} />
-      )}
+     
     </div>
   );
 

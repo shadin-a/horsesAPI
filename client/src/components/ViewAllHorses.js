@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import "./viewAllHorses.css"
+
 function ViewAllHorses() {
 
 
@@ -25,15 +27,19 @@ function ViewAllHorses() {
     };
     return (
 
-        <div>
+        <div className='horse-tiles'>
             {horses && horses.map((horse) => {
                 return (
-                    <div key={horse._id}>
+                    <div key={horse._id} className='tile'>
+                       <div className='horse-image-container'> {horse.imageURL && (
+                            <img className="horse-image" src={horse.imageURL} alt={horse.name} />
+                        )}
+                        </div>
+                        <div className='horse-info'>
                         <h3>{horse.name}</h3>
-                        <p>Age: {horse.age}</p>
-                        {horse.imageUrl && (
-                            <img src={horse.imageURL} alt={horse.name} />
-                        )}</div>
+                        <p>Learn More</p>
+                        </div>
+                        </div>
                 )
             })}
         </div>

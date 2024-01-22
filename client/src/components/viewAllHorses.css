@@ -1,0 +1,27 @@
+.horse-tiles {
+    border: 2px dashed red;
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tile{
+    border: 2px solid gray;
+    border-radius: 4px;
+   
+}
+
+.horse-image-container {
+    width: 250px;
+    height: 250px;
+}
+
+.horse-image-container .horse-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: grey;
+}
+
