@@ -1,5 +1,37 @@
+.page-title p{
+    font-family: "Raleway", sans-serif;
+    color: rgba(255, 255, 255, 0.544);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+.display-page {
+    display: flex;
+    margin:150px;
+    margin-top: 50px;
+   
+}
+
+.side-bar{
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar button {
+    background-color: black;
+    color: white;
+    font-size: 13px;
+   width: 150px;
+   padding: 10px 10px;
+    border-radius: 5px;
+    margin: 5px 0px;
+    cursor: pointer;
+}
 .horse-tiles {
-    border: 2px dashed red;
     display: flex;
     gap: 12px;
     padding: 12px;
@@ -8,14 +40,13 @@
 }
 
 .tile{
-    border: 2px solid gray;
     border-radius: 4px;
    
 }
 
 .horse-image-container {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
 }
 
 .horse-image-container .horse-image {
@@ -23,5 +54,20 @@
     height: 100%;
     object-fit: cover;
     background-color: grey;
+}
+.horse-info {
+    background-color: grey;
+    border-radius: 5px;
+    padding: 10px;
+}
+.horse-info button{
+    background-color: rgba(0, 0, 0, 0.439);
+    color: white;
+    font-size: 13px;
+   width: 100%;
+   padding: 5px 5px;
+    border-radius: 5px;
+    margin: 5px 0px;
+    cursor: pointer;
 }
 

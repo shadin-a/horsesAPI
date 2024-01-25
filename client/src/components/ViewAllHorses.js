@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
+ 
 import "./viewAllHorses.css"
 
 function ViewAllHorses() {
@@ -26,8 +28,27 @@ function ViewAllHorses() {
         }
     };
     return (
-
+        <div>
+       <div className='page-title'>
+       <p>HORSES</p> 
+       </div>
+<div className='display-page'>
+<div className='side-bar'>
+            <h3>PROGRAM</h3>
+      <button type="button">Lease</button>
+      <button type="button">Lesson</button>
+      <button type="button">Prospect</button>
+      <button type="button">Board & Train</button>
+      <h3>AGE</h3>
+      <button type="button">1-10</button>
+      <button type="button">11-20</button>
+      <button type="button">21-30</button>
+      
+    
+   
+        </div>
         <div className='horse-tiles'>
+            
             {horses && horses.map((horse) => {
                 return (
                     <div key={horse._id} className='tile'>
@@ -37,12 +58,18 @@ function ViewAllHorses() {
                         </div>
                         <div className='horse-info'>
                         <h3>{horse.name}</h3>
-                        <p>Learn More</p>
+                               <Link to={`/horses/${horse._id}`}>
+                                <button type="button">Learn More</button>
+                                </Link>
+                        
                         </div>
                         </div>
                 )
             })}
         </div>
+        </div>
+        </div>
+    
     );
 }
 
