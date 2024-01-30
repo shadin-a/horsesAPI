@@ -62,7 +62,7 @@
     background-color: grey;
 }
 .horse-info {
-    background-color: grey;
+    background-color: rgba(240, 248, 255, 0.077);
     border-radius: 5px;
     padding: 10px;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import "./viewAllLocations.css";
 
 
 function ViewAllLocations() {
@@ -26,9 +27,9 @@ function ViewAllLocations() {
     }
   };
   return (
-
-    <div>
-      <h2>Select a location to view residing horses:</h2>
+    <div className='page-title'> <h2>Select a location to view residing horses</h2>
+    <div className='location-container'>
+     
       <div className='location-buttons'> 
 
         {location && location.map((location) => {
@@ -40,6 +41,7 @@ function ViewAllLocations() {
         })}
       
       </div>
+    </div>
     </div>
   );
 }

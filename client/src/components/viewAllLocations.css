@@ -1,7 +1,3 @@
-.page-title{
-    display: flex;
-    flex-direction: column;
-}
 .page-title h2{
     font-family: "Raleway", sans-serif;
     color: rgba(255, 255, 255, 0.544);
@@ -12,24 +8,23 @@
     justify-content: center;
     padding-top: 50px;
 }
-.owner-container {
+.location-container {
     display: flex;
     gap: 12px;
     padding: 12px;
     flex-wrap: wrap;
     justify-content: center;
 }
-.owner-buttons {
+.location-buttons {
     display: flex;
     gap: 12px;
     width: fit-content;
 }
 
-.owner-buttons button {
+.location-buttons button{
     font-size: 16px;
     background-color: rgba(240, 248, 255, 0.077);
     border-radius: 5px;
     padding: 10px;
     margin-top: 100px;
-  
 }

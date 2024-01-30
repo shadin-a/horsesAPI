@@ -1,0 +1,36 @@
+/* Filename - App.css */
+
+.footer {
+    padding: 20px 40px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    z-index: 10;
+	color: white;
+	font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+     margin: auto;
+     padding-left: 45%;
+     padding-right:40%;
+}
+
+.right-el {
+    font-family: "Raleway", sans-serif;
+    color: whitesmoke;
+    text-decoration: none;
+    width: 200px;
+    font-weight: 700;
+    font-size: 10px;
+ 
+}
+
+.left-el {
+   
+    color: whitesmoke;
+    display: flex;
+    gap: 20px;
+    font-family: "Raleway", sans-serif;
+}

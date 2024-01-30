@@ -45,10 +45,11 @@ function ViewOneHorse() {
 
   return (
 
-    <div>
-       <div className='horse-image-container'>{horse.imageURL && (
+    <div className='loaded-data'>
+       <div className='one-horse-image-container'>{horse.imageURL && (
         <img className='horse-images' src={horse.imageURL} alt={horse.name} />
       )}</div>
+      <div className='one-horse-info'>
       <h3>{horse.name}</h3>
       <p>Owner: {owner.name}</p>
       <p>Age: {horse.age}</p>
@@ -56,7 +57,7 @@ function ViewOneHorse() {
       <p>Breed: {horse.breed}</p>
       <p>Height: {horse.height}</p>
       <p>Born: {horse.year_of_birth}</p>
-     
+      </div>
     </div>
   );
 

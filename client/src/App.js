@@ -9,6 +9,8 @@ import Navigation from './components/Navigation';
 import ViewAllLocations from './components/ViewAllLocations';
 import HorsesByLocation from './components/HorsesByLocation';
 import AddHorseForm from './components/AddAHorse';
+import Footer from './components/Footer';
+
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         {/* ... other routes */}
       </Routes>
+     <Footer/>
     </Router>
   );
 }

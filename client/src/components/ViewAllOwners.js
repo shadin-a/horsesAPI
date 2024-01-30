@@ -27,9 +27,10 @@ function ViewAllOwners() {
     }
   };
   return (
-
     <div>
-      <h2>Select an owner to view their horses:</h2>
+    <div className='page-title'><h2>Select an owner to view their horses</h2>
+    <div className='owner-container'>
+     
       <div className='owner-buttons'> 
 
         {owners && owners.map((owner) => {
@@ -41,6 +42,8 @@ function ViewAllOwners() {
         })}
       
       </div>
+    </div>
+    </div>
     </div>
   );
 }

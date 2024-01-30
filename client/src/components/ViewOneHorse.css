@@ -1,15 +1,48 @@
-.horse-image-container {
-    margin: 10px;
+.loaded-data {
+ background-color: rgba(240, 248, 255, 0.077);
+  display: flex;
+     justify-content: space-between;
+     margin: auto;
+     margin-top: 50px;
+     max-width: 800px; 
+     padding: 20px;
+     border-radius: 5px;
+
+
+}
+.one-horse-image-container {
+  width: 400px;
+  height: 400px;
   text-align: center;
 }
 
 .horse-images {
-    max-width: 30%;
-    height: auto;
+  width: 100%;
+  height: 100%;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
+  .one-horse-info {
+    color: whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    height: 400px;
+    margin:auto;
+    margin-left: 50px;
+    font-family: "Lato", sans-serif;
+    line-height: 2;
+    
+  }
+
+  .one-horse-info h3{
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 24px;
+  }
   /* p {
     margin-top: 8px;
     font-size: 14px;

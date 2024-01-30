@@ -1,12 +1,12 @@
 
 nav {
-    border: 2px solid red;
+   
     padding: 20px 40px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 .nav-content {
-    border: 2px dashed black;
+    
     width: 100%;
     max-width: 700px; 
     display: flex;
@@ -16,13 +16,14 @@ nav {
 
 .nav-left a {
     font-family: "Raleway", sans-serif;
-    color: black;
+    color: whitesmoke;
     text-decoration: none;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 40px;
 }
 
 .nav-right ul {
+    color: whitesmoke;
     display: flex;
     gap: 20px;
     font-family: "Lato", sans-serif;
@@ -38,7 +39,14 @@ nav {
 
 .nav-right ul li a:hover {
     text-decoration: underline;
-    text-decoration-color: #800020;
+    text-decoration-color: rgb(201, 132, 201);
+    text-decoration-thickness: 4px;
+   text-underline-offset: 8px;
+}
+
+.nav-right ul li a:active {
+    text-decoration: underline;
+    text-decoration-color: rgb(201, 132, 201);
     text-decoration-thickness: 4px;
    text-underline-offset: 8px;
 }
