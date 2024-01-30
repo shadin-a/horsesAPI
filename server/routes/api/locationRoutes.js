@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
       const objectId = new ObjectId(locationId);
   
       const cursor = await client.db("horseDatabase").collection('locations').findOne({ _id: objectId });
-  
+
       if (cursor) {
         res.json(cursor);
       } else {

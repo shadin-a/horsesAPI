@@ -16,9 +16,15 @@
 }
 
 .side-bar{
+    color: white;
     padding: 10%;
     display: flex;
     flex-direction: column;
+    
+}
+.side-bar h3 {
+    padding: 5px;
+    margin: 5px;
 }
 
 .side-bar button {

@@ -41,7 +41,7 @@ export const Navigation = (props) => {
             </a>
           </li>
           <li>
-            <a href="/">
+            <a href="/add">
               ADD HORSE
             </a>
           </li>

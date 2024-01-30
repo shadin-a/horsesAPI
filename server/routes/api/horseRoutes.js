@@ -2,12 +2,27 @@ const client = require("../../connection.js");
 const router = require("express").Router();
 const { ObjectId } = require('mongodb');
 
+
+function createQueryCondition(queryObject) {
+  // console.log('query object', queryObject)
+    const programQuery = queryObject.program
+    let programs;
+    let queryCondition = {}
+
+    if (programQuery) {
+      programs = programQuery.split(" ")
+      queryCondition = { 'program': { $in: programs } };
+    }
+    return queryCondition
+ };
+
 //ROUTE TO GET ALL HORSES
 router.get('/', async (req, res) => {
+  const queryCondition = createQueryCondition(req.query)
 
-  const cursor = client.db("horseDatabase").collection("horses").find();
+  const cursor = client.db("horseDatabase").collection("horses").find(queryCondition);
   const horsesData = await cursor.toArray();
-  console.log("um...hi?", horsesData);
+  // console.log("um...hi?", horsesData);
   res.json({ horsesData })
 
 });
