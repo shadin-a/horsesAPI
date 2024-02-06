@@ -10,6 +10,8 @@ import ViewAllLocations from './components/ViewAllLocations';
 import HorsesByLocation from './components/HorsesByLocation';
 import AddHorseForm from './components/AddAHorse';
 import Footer from './components/Footer';
+import LandingPage from './components/LandingPage';
+
 
 
 
@@ -21,7 +23,7 @@ function App() {
     <Router>
       <Navigation/>
       <Routes>
-      {/* <Route path="/" element={<LandingPage />} /> */}
+      <Route path="/" element={<LandingPage />} />
         <Route path="/horses" element={<ViewAllHorses />} />
         <Route path="/owners" element={<ViewAllOwners />} />
         <Route path="/locations" element={<ViewAllLocations />} />

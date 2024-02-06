@@ -1,0 +1,28 @@
+.add-form-bg {
+    background-color: rgba(240, 248, 255, 0.077);
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 100px;
+    color: whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    height: fit-content;
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+    
+}
+
+button {
+font-size: 16px;
+background-color: rgba(240, 248, 255, 0.077);
+border-radius: 5px;
+padding: 10px;
+margin-top: 10px;
+justify-content: center;
+}
+
+input {
+    max-width: 500px;
+}

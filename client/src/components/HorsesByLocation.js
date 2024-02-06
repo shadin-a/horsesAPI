@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 function HorsesByLocation() {
@@ -42,14 +43,28 @@ function HorsesByLocation() {
 
 
     return (
-        <div>
+        <div className='page-title'>
             <h2>Horses stabled at {location.locationName}:</h2>
-           
+            <div className='horse-tiles'>
             {horses.length > 0 && horses.map((horse) => {
-                return (
-                    <div key={horse._id}>{horse.name}</div>
+                   return (
+                    <div key={horse._id} className='tile'>
+                                <div className='horse-image-container'> {horse.imageURL && (
+                                    <img className="horse-image" src={horse.imageURL} alt={horse.name} />
+                                )}
+                                </div>
+                                <div className='horse-info'>
+                                    <h3>{horse.name}</h3>
+                                    <Link to={`/horses/${horse._id}`}>
+                                        <button type="button">Learn More</button>
+                                    </Link>
+
+                                </div>
+                            </div>
                 )
             })}
+            
+        </div>
         </div>
     )
 }
