@@ -1,9 +1,24 @@
+.page-title{
+    display: flex;
+    flex-direction: column;
+}
+.page-title h2{
+    font-family: "Raleway", sans-serif;
+    color: rgba(255, 255, 255, 0.544);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
 .add-form-bg {
     background-color: rgba(240, 248, 255, 0.077);
     display: flex;
     justify-content: space-between;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     color: whitesmoke;
     border-radius: 5px;
     padding: 10px;
@@ -11,18 +26,31 @@
     height: fit-content;
     font-family: "Lato", sans-serif;
     line-height: 1.5;
+   
+
     
 }
-
-button {
+.button-style {
+    width: 300px;
+    text-align: center;
+}
+.add-form-bg button {
 font-size: 16px;
 background-color: rgba(240, 248, 255, 0.077);
 border-radius: 5px;
 padding: 10px;
 margin-top: 10px;
-justify-content: center;
+
 }
 
-input {
-    max-width: 500px;
+.add-form-bg input {
+    border-radius: 5px;
+    width: 275px;
+    height: 25px;
+}
+
+select {
+    border-radius: 5px;
+    width: 275px;
+    height: 25px;
 }

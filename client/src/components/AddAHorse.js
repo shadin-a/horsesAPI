@@ -81,7 +81,11 @@ function AddHorseForm() {
     };
 
     return (
+  
+     <div>
+    <div className='page-title'><h2>Add a Horse to the Database</h2></div>
         <div className='add-form-bg'>
+          
              <form onSubmit={handleFormSubmit}>
                 <label>Name
                 <br/>
@@ -156,9 +160,12 @@ function AddHorseForm() {
                     <input type="text" value={formState.imageURL} onChange={(event)=>{setFormState({...formState, imageURL: event.target.value})}} />
                 </label>
                 <br/>
+                <div className='button-style'>
                 <button> Add Horse</button>
+                </div>
             </form>
             
+        </div>
         </div>
     )
 };
