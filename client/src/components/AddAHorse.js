@@ -12,7 +12,6 @@ function AddHorseForm() {
         heightInput: '',
         yearOfBirthInput: '',
         imageURLInput: ''});
-    console.log('um...hi?');
 
 
     const handleChange = (event) => {
@@ -71,7 +70,10 @@ function AddHorseForm() {
                 <br/>
                 <label>Owner
                 <br/>
-                <select value={formState.ownerInput} onChange={(event)=>{setFormState({...formState, ownerInput: event.target.value})}} >
+                <select value={formState.ownerInput} onChange={(event)=>{
+                  const selectedOwner = owners.find(owner => owner.name === event.target.value);
+                  console.log(selectedOwner);
+                  setFormState({...formState, ownerInput: selectedOwner ? selectedOwner._id : event.target.value})}} >
                 <option value="owner-name">Select Owner</option>
                 {owners && owners.map((owner) => {
           return (
@@ -90,11 +92,13 @@ function AddHorseForm() {
                 <br/>
                 <label>Location
                 <br/>
-                <select value={formState.locationInput} onChange={(event)=>{setFormState({...formState, locationInput: event.target.value})}} >
+                <select value={formState.locationInput} onChange={(event)=>{
+                  const selectedLocation = location.find(loc => loc.locationName === event.target.value);
+                  setFormState({...formState, locationInput: selectedLocation ? selectedLocation._id : event.target.value})}} >
                 <option value="location-name">Select Location</option>
                 {location && location.map((location) => {
           return (
-            <option key={location.id} value={location.locationName}>
+            <option key={location.id} value={location.id}>
             {location.locationName}
           </option>
             )
