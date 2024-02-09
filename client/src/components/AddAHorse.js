@@ -4,14 +4,15 @@ import "./addAHorse.css";
 
 function AddHorseForm() {
     const [formState, setFormState] = useState({
-        nameInput: '',
-        ownerInput: '',
-        ageInput: '',
-        locationInput: '',
-        breedInput:'',
-        heightInput: '',
-        yearOfBirthInput: '',
-        imageURLInput: ''});
+        name: '',
+        owner: '',
+        age: '',
+        location: '',
+        program:'',
+        breed:'',
+        height: '',
+        year_of_birth: '',
+        imageURL: ''});
 
 
     const handleChange = (event) => {
@@ -25,7 +26,6 @@ function AddHorseForm() {
     }, []);
   
     useEffect(() => {
-      console.log(owners)
     }, [owners]);
   
     const [location, setLocations] = useState([]);
@@ -35,7 +35,6 @@ function AddHorseForm() {
     }, []);
   
     useEffect(() => {
-      console.log(location)
     }, [location]);
   
   
@@ -59,21 +58,41 @@ function AddHorseForm() {
       }
     };
 
+    const handleFormSubmit = (event) => {
+      event.preventDefault();
+      const formDataJSON = JSON.stringify(formState);
+  
+      fetch('horses/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: formDataJSON,
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response from the server
+          console.log('Server response:', data);
+        })
+        .catch(error => {
+          // Handle errors
+          console.error('Error:', error);
+        });
+    };
+
     return (
         <div className='add-form-bg'>
-            <form onSubmit={(event)=> {event.preventDefault();
-                console.log(formState)}}>
+             <form onSubmit={handleFormSubmit}>
                 <label>Name
                 <br/>
-                    <input type="text" value={formState.nameInput} onChange={(event)=>{setFormState({...formState, nameInput: event.target.value})}} />
+                    <input type="text" value={formState.name} onChange={(event)=>{setFormState({...formState, name: event.target.value})}} />
                 </label>
                 <br/>
                 <label>Owner
                 <br/>
-                <select value={formState.ownerInput} onChange={(event)=>{
+                <select value={formState.owner} onChange={(event)=>{
                   const selectedOwner = owners.find(owner => owner.name === event.target.value);
-                  console.log(selectedOwner);
-                  setFormState({...formState, ownerInput: selectedOwner ? selectedOwner._id : event.target.value})}} >
+                  setFormState({...formState, owner: selectedOwner ? selectedOwner._id : event.target.value})}} >
                 <option value="owner-name">Select Owner</option>
                 {owners && owners.map((owner) => {
           return (
@@ -87,14 +106,14 @@ function AddHorseForm() {
                 <br/>
                 <label>Age
                 <br/>
-                    <input type="text" value={formState.ageInput} onChange={(event)=>{setFormState({...formState, ageInput: event.target.value})}} />
+                    <input type="text" value={formState.age} onChange={(event)=>{setFormState({...formState, age: event.target.value})}} />
                 </label>
                 <br/>
                 <label>Location
                 <br/>
-                <select value={formState.locationInput} onChange={(event)=>{
+                <select value={formState.location} onChange={(event)=>{
                   const selectedLocation = location.find(loc => loc.locationName === event.target.value);
-                  setFormState({...formState, locationInput: selectedLocation ? selectedLocation._id : event.target.value})}} >
+                  setFormState({...formState, location: selectedLocation ? selectedLocation._id : event.target.value})}} >
                 <option value="location-name">Select Location</option>
                 {location && location.map((location) => {
           return (
@@ -108,22 +127,33 @@ function AddHorseForm() {
                 <br/>
                 <label>Breed
                     <br/>
-                    <input type="text" value={formState.breedInput} onChange={(event)=>{setFormState({...formState, breedInput: event.target.value})}} />
+                    <input type="text" value={formState.breed} onChange={(event)=>{setFormState({...formState, breed: event.target.value})}} />
                 </label>
                 <br/>
                 <label>Height
                 <br/>
-                    <input type="text" value={formState.heightInput} onChange={(event)=>{setFormState({...formState, heightInput: event.target.value})}} />
+                    <input type="text" value={formState.height} onChange={(event)=>{setFormState({...formState, height: event.target.value})}} />
                 </label>
                 <br/>
                 <label>Year Of Birth
                 <br/>
-                    <input type="text" value={formState.yearOfBirthInput} onChange={(event)=>{setFormState({...formState, yearOfBirthInput: event.target.value})}} />
+                    <input type="text" value={formState.year_of_birth} onChange={(event)=>{setFormState({...formState, year_of_birth: event.target.value})}} />
+                </label>
+                <br/>
+                <label>Program
+                <br/>
+                <select value={formState.program} onChange={(event)=>{setFormState({...formState, program: event.target.value})}} >
+                <option value="program">Select Program</option>
+               <option value="Lease">Lease</option>
+               <option value="Lesson">Lease</option>
+               <option value="BoardAndTrain">Board & Train</option>
+               <option value="Prospect">Prospect</option>
+          </select>
                 </label>
                 <br/>
                 <label>Image URL
                 <br/>
-                    <input type="text" value={formState.imageURLInput} onChange={(event)=>{setFormState({...formState, imageURLInput: event.target.value})}} />
+                    <input type="text" value={formState.imageURL} onChange={(event)=>{setFormState({...formState, imageURL: event.target.value})}} />
                 </label>
                 <br/>
                 <button> Add Horse</button>

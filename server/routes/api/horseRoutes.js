@@ -5,16 +5,16 @@ const { ObjectId } = require('mongodb');
 
 function createQueryCondition(queryObject) {
   // console.log('query object', queryObject)
-    const programQuery = queryObject.program
-    let programs;
-    let queryCondition = {}
+  const programQuery = queryObject.program
+  let programs;
+  let queryCondition = {}
 
-    if (programQuery) {
-      programs = programQuery.split(" ")
-      queryCondition = { 'program': { $in: programs } };
-    }
-    return queryCondition
- };
+  if (programQuery) {
+    programs = programQuery.split(" ")
+    queryCondition = { 'program': { $in: programs } };
+  }
+  return queryCondition
+};
 
 //ROUTE TO GET ALL HORSES
 router.get('/', async (req, res) => {
@@ -86,11 +86,20 @@ router.get('/location/:location', async (req, res) => {
 router.post('/add', async (req, res) => {
   try {
     // HORSE DETAILS
-    const { name, height, breed, age, location, owner, program,  year_of_birth,  } = req.body;
+    const { name, height, breed, age, location, owner, program, year_of_birth, } = req.body;
 
     // VALIDATE ENTRIES
-    if (!name || !height || !breed || !age || !location || !owner || !program || !year_of_birth) {
-      return res.status(400).json({ error: "Incomplete horse details" });
+    //if (!name || !height || !breed || !age || !location || !owner || !program || !year_of_birth) {
+    const requiredFields = ['name', 'height', 'breed', 'age', 'location', 'owner', 'program', 'year_of_birth'];
+
+    // Find the missing fields
+    const missingFields = requiredFields.filter(field => !req.body[field]);
+
+    // Check if there are missing fields
+    if (missingFields.length > 0) {
+      return res.status(400).json({ error: `Missing fields: ${missingFields.join(', ')}` });
+
+      // return res.status(400).json({ error: "Incomplete horse details" });
     }
 
     // NEW HORSE OBJECT
