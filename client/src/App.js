@@ -11,8 +11,7 @@ import HorsesByLocation from './components/HorsesByLocation';
 import AddHorseForm from './components/AddAHorse';
 import Footer from './components/Footer';
 import LandingPage from './components/LandingPage';
-
-
+import AddOwnerForm from './components/addAOwner';
 
 
 function App() {
@@ -21,7 +20,9 @@ function App() {
 
 
     <Router>
+      <div className='web-page'>
       <Navigation/>
+      <div className='page-content'>
       <Routes>
       <Route path="/" element={<LandingPage />} />
         <Route path="/horses" element={<ViewAllHorses />} />
@@ -32,9 +33,12 @@ function App() {
         <Route path="/owner/:id" element={<HorsesByOwner />} />
         <Route path="/horses/:id" element={<ViewOneHorse />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/addOwner" element={<AddOwnerForm />} />
         {/* ... other routes */}
       </Routes>
+      </div>
      <Footer/>
+     </div>
     </Router>
   );
 }

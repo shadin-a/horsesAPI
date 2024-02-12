@@ -55,7 +55,7 @@ function ViewAllHorses() {
     return (
         <div>
             <div className='page-title'>
-                <p>HORSES</p>
+                <h2>HORSES</h2>
             </div>
             <div className='display-page'>
                 <HorsesSidebarFilter filterSettings={filterSettings} setFilterSettings={setFilterSettings} />

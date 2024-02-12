@@ -17,7 +17,7 @@ function HorsesSidebarFilter({
                         })}
                     />
                 </div>
-                <label for="lease">Lease</label><br />
+                <label htmlFor="lease">Lease</label><br />
             </div>
             <div className="side-bar-option">
                 <input type="checkbox" id="lesson" name="lesson" value="lesson"
@@ -30,7 +30,7 @@ function HorsesSidebarFilter({
                         }
                     })}
                 />
-                <label for="lesson">Lesson</label><br />
+                <label htmlFor="lesson">Lesson</label><br />
             </div>
             <div className="side-bar-option">
                 <div className="checkbox">
@@ -45,7 +45,7 @@ function HorsesSidebarFilter({
                     })}
                 />
                 </div>
-                <label for="prospect">Prospect</label><br />
+                <label htmlFor="prospect">Prospect</label><br />
             </div>
             <div className="side-bar-option">
                 <input type="checkbox" id="boardAndTrain" name="boardAndTrain" value="boardAndTrain"
@@ -59,7 +59,7 @@ function HorsesSidebarFilter({
                         }
                     })}
                 />
-                <label for="boardAndTrain">Board & Train</label><br />
+                <label htmlFor="boardAndTrain">Board & Train</label><br />
             </div>
           
 

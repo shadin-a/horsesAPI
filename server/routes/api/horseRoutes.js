@@ -7,11 +7,12 @@ function createQueryCondition(queryObject) {
   // console.log('query object', queryObject)
   const programQuery = queryObject.program
   let programs;
-  let queryCondition = {}
+  let queryCondition = { archive: { $ne: true } }
+
 
   if (programQuery) {
     programs = programQuery.split(" ")
-    queryCondition = { 'program': { $in: programs } };
+    queryCondition.program= { $in: programs };
   }
   return queryCondition
 };
@@ -111,7 +112,8 @@ router.post('/add', async (req, res) => {
       location: new ObjectId(location),
       owner: new ObjectId(owner),
       program: program,
-      year_of_birth: year_of_birth
+      year_of_birth: year_of_birth,
+      archive: false,
 
     };
 
@@ -139,8 +141,10 @@ router.delete('/:id', async (req, res) => {
     }
 
     // Delete the horse from the database
-    const result = await client.db("horseDatabase").collection('horses').deleteOne({ _id: objectId });
-
+    const result = await client.db("horseDatabase").collection('horses').updateOne(
+      { _id: objectId },
+      { $set: { archive: true } }
+    );
     // Return a success message
     res.json({ message: "Horse successfully deleted", deletedCount: result.deletedCount });
   } catch (error) {

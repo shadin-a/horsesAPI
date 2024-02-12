@@ -6,7 +6,7 @@ export const Footer = () => {
         <div className="footer">
             <div className="left-el">
 
-                <a href="https://github.com/shadin-a"><img src="client/public/github-mark-white.png" alt="github-logo"></img> </a>
+                <a href="https://github.com/shadin-a"><img src="/github-mark-white.png" alt="github-logo" width='25' height='25'></img> </a>
         
             </div>
             <div className="right-el">

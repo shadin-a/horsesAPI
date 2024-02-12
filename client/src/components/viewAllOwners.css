@@ -27,9 +27,19 @@
 
 .owner-buttons button {
     font-size: 16px;
+    color:aliceblue;
     background-color: rgba(240, 248, 255, 0.077);
     border-radius: 5px;
     padding: 10px;
     margin-top: 100px;
   
+}
+.add-owner {
+    font-family: "Raleway", sans-serif;
+    color: rgba(255, 255, 255, 0.544);
+    display: flex;
+    padding: 12px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
 }

@@ -44,6 +44,9 @@ function ViewAllOwners() {
       </div>
     </div>
     </div>
+    <div className="add-owner"> Don't see who you're looking for? 
+  &nbsp;
+  <Link to={`/addOwner`}>Add Owner</Link></div>
     </div>
   );
 }

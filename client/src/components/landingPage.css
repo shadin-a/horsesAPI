@@ -21,7 +21,7 @@
 
 .page-title p {
     color: whitesmoke;
-    font-size: 13px;
+    font-size: 15px;
     border-radius: 5px;
     padding: 10px;
     margin:auto;
@@ -41,7 +41,7 @@
 .slider-container{
     justify-content: space-between;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 10px;
     max-width: 800px; 
     padding: 20px;
 }

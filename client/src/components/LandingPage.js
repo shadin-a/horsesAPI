@@ -16,10 +16,10 @@ const LandingPage = () => {
   };
 
   const slides = [
-    { id: 1, image: 'https://storage.googleapis.com/novella_horses/novella%20location/1924133_29_0.jpg', description: 'Turnout' },
-    { id: 2, image: 'https://storage.googleapis.com/novella_horses/novella%20location/1924133_2_0.jpg', description: 'Valley' },
-    { id: 3, image: 'https://storage.googleapis.com/novella_horses/novella%20location/1924133_32_0.jpg', description: 'Stalls' },
-    { id: 4, image: 'https://storage.googleapis.com/novella_horses/novella%20location/1924133_34_0.jpg', description: 'Arena' },
+    { id: 1, image: 'https://storage.googleapis.com/novella_horses/novella%20location/1924133_29_0.jpg' },
+    { id: 2, image: 'https://storage.googleapis.com/novella_horses/novella%20location/1924133_2_0.jpg'},
+    { id: 3, image: 'https://storage.googleapis.com/novella_horses/novella%20location/1924133_32_0.jpg'},
+    { id: 4, image: 'https://storage.googleapis.com/novella_horses/novella%20location/1924133_34_0.jpg' },
     // Add more slides as needed
   ];
 
